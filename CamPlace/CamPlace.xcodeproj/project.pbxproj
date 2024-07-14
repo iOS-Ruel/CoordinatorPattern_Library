@@ -133,8 +133,6 @@
 		411B1A052C1D74C500CAA9A7 = {
 			isa = PBXGroup;
 			children = (
-				41EEE2C32C37B87400A37E22 /* Location+CoreDataClass.swift */,
-				41EEE2C42C37B87400A37E22 /* Location+CoreDataProperties.swift */,
 				415AF2522C20669700C07CEA /* API_KEY.xcconfig */,
 				411B1A102C1D74C500CAA9A7 /* CamPlace */,
 				411B1A0F2C1D74C500CAA9A7 /* Products */,
@@ -153,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				417DC6D02C418C23006DEFF6 /* Coordinator */,
-				41EEE2C72C37B8A000A37E22 /* CoreDataManager.swift */,
 				4114E9C32C299DCA009BBC9E /* Tabbar */,
 				415AF2512C20665100C07CEA /* Main */,
 				415AF2552C2081A400C07CEA /* Custom */,
@@ -161,6 +158,7 @@
 				4114E9C42C299DF2009BBC9E /* Common */,
 				415AF2592C20824F00C07CEA /* Extension */,
 				4184C6292C2B0F84008D19E9 /* APIService */,
+				417DC7302C4430BC006DEFF6 /* CoreData */,
 				411B1A252C1D74E000CAA9A7 /* App */,
 				411B1A1C2C1D74C700CAA9A7 /* LaunchScreen.storyboard */,
 				411B1A1A2C1D74C700CAA9A7 /* Assets.xcassets */,
@@ -236,6 +234,24 @@
 				417DC6D72C418D29006DEFF6 /* AppCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		417DC72F2C4430B4006DEFF6 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				41EEE2C72C37B8A000A37E22 /* CoreDataManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		417DC7302C4430BC006DEFF6 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				417DC72F2C4430B4006DEFF6 /* Manager */,
+				41EEE2C32C37B87400A37E22 /* Location+CoreDataClass.swift */,
+				41EEE2C42C37B87400A37E22 /* Location+CoreDataProperties.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		4184C6292C2B0F84008D19E9 /* APIService */ = {

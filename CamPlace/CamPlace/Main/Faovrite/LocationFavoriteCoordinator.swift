@@ -39,6 +39,4 @@ extension LocationFavoriteCoordinator: LocationFavoriteDelegate {
         let vc = PlaceDetailViewController(viewModel: viewModel)
         self.navigationController.pushViewController(vc, animated: true)
     }
-    
-    
 }
