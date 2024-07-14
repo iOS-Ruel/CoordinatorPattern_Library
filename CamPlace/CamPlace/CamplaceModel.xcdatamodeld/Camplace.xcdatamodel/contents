@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Location" representedClassName="Location" syncable="YES">
+        <attribute name="addr2" optional="YES" attributeType="String"/>
+        <attribute name="animalCmgCl" optional="YES" attributeType="String"/>
+        <attribute name="contentId" optional="YES" attributeType="String"/>
+        <attribute name="doNm" optional="YES" attributeType="String"/>
+        <attribute name="homepage" optional="YES" attributeType="String"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String"/>
+        <attribute name="intro" optional="YES" attributeType="String"/>
+        <attribute name="lineIntro" optional="YES" attributeType="String"/>
+        <attribute name="mapX" optional="YES" attributeType="String"/>
+        <attribute name="mapY" optional="YES" attributeType="String"/>
+        <attribute name="sbrsCl" optional="YES" attributeType="String"/>
+        <attribute name="sigunguNm" optional="YES" attributeType="String"/>
+        <attribute name="subTitle" optional="YES" attributeType="String"/>
+        <attribute name="tel" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
+</model>
