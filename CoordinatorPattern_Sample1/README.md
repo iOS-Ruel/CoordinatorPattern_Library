@@ -69,7 +69,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             
-            **let window = UIWindow(windowScene: windowScene)
+            let window = UIWindow(windowScene: windowScene)
             self.window = window
 
             let navigationController = UINavigationController()
@@ -78,7 +78,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let coordinator = AppCoordinator(navigationController: navigationController)
             coordinator.start()
             
-            self.window?.makeKeyAndVisible()**
+            self.window?.makeKeyAndVisible()
         }
     } 
 }
@@ -136,7 +136,7 @@ class LoginViewController: UIViewController {
 
 ### 5-3. LoginViewControllerDelegater구현
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/70493b82-132d-4a41-bf61-550a46ced5f0/a26ece08-aa6e-4f4e-ab03-e50a592dbb9c/Untitled.png)
+![Untitled](https://github.com/user-attachments/assets/d2fab8a2-e930-4980-bd8d-96e513c2ba52)
 
 - LoginVIewController(VC1) 에서 Login 버튼을 누르면 LoginCoordinator(VC1 Coordinator)가 이를 알아야함
 - 따라서 Delegate를 구현해주어야함
@@ -182,7 +182,7 @@ class LoginCoordinator: Coordinator, LoginViewControllerDelegate {
     func start() {
         let viewController = LoginViewController()
         viewController.view.backgroundColor = .brown
-        **viewController.delegate = self** // ✅
+        viewController.delegate = self // ✅
         
         self.navigationController.viewControllers = [viewController]
     }
@@ -198,7 +198,7 @@ class LoginCoordinator: Coordinator, LoginViewControllerDelegate {
 
 ### 5-5. AppCoordinator에게 로그인이 되었다고 알림
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/70493b82-132d-4a41-bf61-550a46ced5f0/e4b749f3-6507-46e2-959b-1f1933fac304/Untitled.png)
+![Untitled](https://github.com/user-attachments/assets/61fc6857-0972-4576-80b5-73c79df5cfc1)
 
 - 로그인이 되었다면 AppCoordinator에게 로그인이 되었다는 것을 알려 MainViewController(VC2로 이동시켜주어야함
 
@@ -270,8 +270,8 @@ class AppCoordinator: Coordinator, LoginCoordinatorDelegate {
     }
     
     func didLoggedIn(_ coordinator: LoginCoordinator) {  // ✅
-        **self.childCoordinators = self.childCoordinators.filter { $0 !== coordinator }
-        self.showMainViewController()**
+        self.childCoordinators = self.childCoordinators.filter { $0 !== coordinator }
+        self.showMainViewController()
     }
 }
 ```
@@ -406,7 +406,7 @@ class MainViewController: UIViewController {
 ```swift
 protocol MainCoordinatorDelegate {
     func didLoggedOut(_ coordinator: MainCoordinator)
-    **func didPushButton(_ coordinator: MainCoordinator)**
+    func didPushButton(_ coordinator: MainCoordinator)
 }
 
 func pushNextView() {
@@ -482,7 +482,7 @@ class NextViewCoordinator: Coordinator, NextViewControllerDelegate {
         let nextView = NextViewController()
         nextView.view.backgroundColor = .darkGray
         nextView.delegate = self
-        **self.navigationController.pushViewController(nextView, animated: true)**
+        self.navigationController.pushViewController(nextView, animated: true)
     }
     
     
