@@ -12,7 +12,6 @@
 		411B1A142C1D74C500CAA9A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411B1A132C1D74C500CAA9A7 /* SceneDelegate.swift */; };
 		411B1A1B2C1D74C700CAA9A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 411B1A1A2C1D74C700CAA9A7 /* Assets.xcassets */; };
 		411B1A1E2C1D74C700CAA9A7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 411B1A1D2C1D74C700CAA9A7 /* Base */; };
-		411B1A272C1D74EF00CAA9A7 /* MainTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411B1A262C1D74EF00CAA9A7 /* MainTabbarViewController.swift */; };
 		411B1A292C1D752A00CAA9A7 /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411B1A282C1D752A00CAA9A7 /* MainMapViewController.swift */; };
 		411B1A2B2C1D76E500CAA9A7 /* MainMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411B1A2A2C1D76E500CAA9A7 /* MainMapViewModel.swift */; };
 		411B1A2F2C1D773A00CAA9A7 /* BasedListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411B1A2E2C1D773A00CAA9A7 /* BasedListModel.swift */; };
@@ -56,7 +55,6 @@
 		411B1A1A2C1D74C700CAA9A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		411B1A1D2C1D74C700CAA9A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		411B1A1F2C1D74C700CAA9A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		411B1A262C1D74EF00CAA9A7 /* MainTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarViewController.swift; sourceTree = "<group>"; };
 		411B1A282C1D752A00CAA9A7 /* MainMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; };
 		411B1A2A2C1D76E500CAA9A7 /* MainMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewModel.swift; sourceTree = "<group>"; };
 		411B1A2E2C1D773A00CAA9A7 /* BasedListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasedListModel.swift; sourceTree = "<group>"; };
@@ -104,14 +102,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4114E9C32C299DCA009BBC9E /* Tabbar */ = {
-			isa = PBXGroup;
-			children = (
-				411B1A262C1D74EF00CAA9A7 /* MainTabbarViewController.swift */,
-			);
-			path = Tabbar;
-			sourceTree = "<group>";
-		};
 		4114E9C42C299DF2009BBC9E /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				417DC6D02C418C23006DEFF6 /* Coordinator */,
-				4114E9C32C299DCA009BBC9E /* Tabbar */,
 				415AF2512C20665100C07CEA /* Main */,
 				415AF2552C2081A400C07CEA /* Custom */,
 				411B1A322C1D774600CAA9A7 /* Model */,
@@ -385,7 +374,6 @@
 				41EEE2B72C37AE9100A37E22 /* CamplaceModel.xcdatamodeld in Sources */,
 				4184C6262C2B09B9008D19E9 /* APIError.swift in Sources */,
 				411B1A362C1D775D00CAA9A7 /* ImageListModel.swift in Sources */,
-				411B1A272C1D74EF00CAA9A7 /* MainTabbarViewController.swift in Sources */,
 				417DC6D22C418C35006DEFF6 /* Coordinator.swift in Sources */,
 				41BCB4412C23234500E817E6 /* DetailInfoTableViewCell.swift in Sources */,
 				415AF2582C2081F300C07CEA /* CustomAnnotation.swift in Sources */,

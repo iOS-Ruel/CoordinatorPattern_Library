@@ -24,7 +24,7 @@ class AppCoordinator: Coordinator {
     
     func setupTabbarController() -> UITabBarController {
         
-        let tabbarController = MainTabbarViewController()
+        let tabbarController = UITabBarController()
         
         let firstItem = UITabBarItem(title: "Map", image: UIImage(systemName: "map"), tag: 0)
         let secondItem = UITabBarItem(title: "Favorite", image: UIImage(systemName: "star"), tag: 1)
