@@ -35,6 +35,7 @@ class AppCoordinator: Coordinator {
         
         let mainMapVC = firstViewCoordinator.startPush()
         mainMapVC.tabBarItem = firstItem
+        mainMapVC.topViewController?.title = ""
         
         
         
@@ -44,7 +45,7 @@ class AppCoordinator: Coordinator {
         
         let locationFavoritVC = secondViewCoordinator.startPush()
         locationFavoritVC.tabBarItem = secondItem
-        
+        locationFavoritVC.topViewController?.title = "즐겨찾기"
         tabbarController.viewControllers = [mainMapVC, locationFavoritVC]
         
         return tabbarController

@@ -41,6 +41,7 @@ class LocationFavoriteViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         bindData()
+        
     }
     
     private func setupUI() {

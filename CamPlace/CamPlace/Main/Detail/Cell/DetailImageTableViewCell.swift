@@ -55,7 +55,6 @@ class DetailImageTableViewCell: UITableViewCell {
         contentView.addSubview(pageControl)
         
         NSLayoutConstraint.activate([
-            placeScrollView.heightAnchor.constraint(equalToConstant: 300),
             placeScrollView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
             placeScrollView.topAnchor.constraint(equalTo: contentView.topAnchor),
             placeScrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
