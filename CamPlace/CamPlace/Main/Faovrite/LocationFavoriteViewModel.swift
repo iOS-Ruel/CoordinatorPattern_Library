@@ -8,11 +8,17 @@
 import Foundation
 import Combine
 
+protocol LocationFavoriteDelegate: AnyObject {
+    func pushDetialVC(content: LocationBasedListModel)
+}
+
 class LocationFavoriteViewModel: PlaceListProtocol {
 
     private var cancellables: Set<AnyCancellable> = []
     
     @Published var locations: [Location] = []
+    
+    weak var delegate: LocationFavoriteDelegate?
     
     init() {
         bindData()
@@ -65,4 +71,13 @@ class LocationFavoriteViewModel: PlaceListProtocol {
     func getLocationModel(index: Int) -> LocationBasedListModel? {
         return LocationBasedListModel(from: locations[index])
     }    
+    
+    
+    func pushDetialVC(content: LocationBasedListModel) {
+        delegate?.pushDetialVC(content: content)
+    }
+    
 }
+
+
+

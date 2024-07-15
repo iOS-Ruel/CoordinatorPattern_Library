@@ -22,13 +22,13 @@ class LocationFavoriteCoordinator: Coordinator {
     func start() {
         
     }
-    
  
     func startPush() -> UINavigationController {
-        let locationFavoriteVC = LocationFavoriteViewController()
-        locationFavoriteVC.delegate = self
-        navigationController.setViewControllers([locationFavoriteVC], animated: false)
+        let viewModel = LocationFavoriteViewModel()
+        let locationFavoriteVC = LocationFavoriteViewController(viewModel: viewModel)
+        viewModel.delegate = self
         
+        navigationController.setViewControllers([locationFavoriteVC], animated: false)
         return navigationController
     }
 }

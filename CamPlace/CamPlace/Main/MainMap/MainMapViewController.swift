@@ -10,11 +10,6 @@ import MapKit
 import CoreLocation
 import Combine
 
-protocol MainMapDelegate: AnyObject {
-    func pushDetialVC(content: LocationBasedListModel)
-    func presentLocationList(contents: [LocationBasedListModel])
-}
-
 class MainMapViewController: UIViewController {
     private let mapView: MKMapView = {
         let mv = MKMapView()
@@ -43,9 +38,17 @@ class MainMapViewController: UIViewController {
     private var cancellables = Set<AnyCancellable>()
     
     private var isFirstLocationUpdate = true
-    private let viewModel = MainMapViewModel()
+    private let viewModel: MainMapViewModel
     
-    weak var delegate: MainMapDelegate?
+    init(viewModel: MainMapViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -138,8 +141,7 @@ class MainMapViewController: UIViewController {
     
     @objc private func listButtonTapped() {
         let locationList = viewModel.locationList
-        delegate?.presentLocationList(contents: locationList)
-        
+        viewModel.presentLocationList(contents: locationList)
     }
     
     @objc private func currentButtonTapped() {
@@ -183,9 +185,7 @@ extension MainMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if let title = view.annotation?.title, let placeName = title {
             if let content = viewModel.getLocationContent(title: placeName) {
-                
-                delegate?.pushDetialVC(content: content)
-                
+                viewModel.pushDetialVC(content: content)
             }
         }
         

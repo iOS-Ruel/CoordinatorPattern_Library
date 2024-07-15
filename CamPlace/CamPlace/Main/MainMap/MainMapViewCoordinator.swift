@@ -8,6 +8,12 @@
 import Foundation
 import UIKit
 
+protocol MainMapDelegate: AnyObject {
+    func pushDetialVC(content: LocationBasedListModel)
+    func presentLocationList(contents: [LocationBasedListModel])
+}
+
+
 class MainMapViewCoordinator: Coordinator {
     var navigationController: UINavigationController
     weak var parentCoordinator: Coordinator?
@@ -25,8 +31,9 @@ class MainMapViewCoordinator: Coordinator {
     
  
     func startPush() -> UINavigationController {
-        let mapViewController = MainMapViewController()
-        mapViewController.delegate = self
+        let viewModel = MainMapViewModel()
+        let mapViewController = MainMapViewController(viewModel: viewModel)
+        viewModel.delegate = self
         navigationController.setViewControllers([mapViewController], animated: false)
         
         return navigationController

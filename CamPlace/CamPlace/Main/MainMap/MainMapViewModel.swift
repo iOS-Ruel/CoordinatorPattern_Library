@@ -14,6 +14,8 @@ class MainMapViewModel {
     @Published var locationList: [LocationBasedListModel] = []
     @Published var errorMessage: String?
     
+    weak var delegate: MainMapDelegate?
+    
     func getLocationList(mapX: String, mapY: String, radius: String) {
         service.getLocationBasedList(mapX: mapX, mapY: mapY, radius: radius,
                                      type: LocationBasedListModel.self)
@@ -31,5 +33,13 @@ class MainMapViewModel {
     
     func getLocationContent(title: String) -> LocationBasedListModel? {
         return locationList.first { $0.title == title }
+    }
+    
+    func pushDetialVC(content: LocationBasedListModel) {
+        delegate?.pushDetialVC(content: content)
+    }
+    
+    func presentLocationList(contents: [LocationBasedListModel]) {
+        delegate?.presentLocationList(contents: locationList)
     }
 }

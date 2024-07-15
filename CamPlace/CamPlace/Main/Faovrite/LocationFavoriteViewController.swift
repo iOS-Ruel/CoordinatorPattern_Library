@@ -8,9 +8,6 @@
 import UIKit
 import Combine
 
-protocol LocationFavoriteDelegate: AnyObject {
-    func pushDetialVC(content: LocationBasedListModel)
-}
 
 class LocationFavoriteViewController: UIViewController {
 
@@ -27,15 +24,22 @@ class LocationFavoriteViewController: UIViewController {
         return tv
     }()
     
-    private let viewModel = LocationFavoriteViewModel()
+    private let viewModel:LocationFavoriteViewModel
     private var cancellables: Set<AnyCancellable> = []
     
-    weak var delegate: LocationFavoriteDelegate?
+    init(viewModel: LocationFavoriteViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setupNavi()
         bindData()
     }
     
@@ -49,10 +53,6 @@ class LocationFavoriteViewController: UIViewController {
             listTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             listTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-    }
-    
-    private func setupNavi() {
-//        self.navigationController?.navigationBar.topItem?.title = "즐겨찾기"
     }
     
     private func bindData() {
@@ -86,8 +86,6 @@ extension LocationFavoriteViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let content: LocationBasedListModel = LocationBasedListModel(from: viewModel.locations[indexPath.row])
-        
-        delegate?.pushDetialVC(content: content)
-
+        viewModel.pushDetialVC(content: content)
     }
 }
