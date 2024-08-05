@@ -18,11 +18,9 @@ class MainMapViewCoordinator: Coordinator {
     var navigationController: UINavigationController
     weak var parentCoordinator: Coordinator?
     
-    var childCoordinator: [Coordinator] = []
-    
-    
     init(){
         self.navigationController = .init()
+
     }
     
     func start() {
@@ -39,7 +37,6 @@ extension MainMapViewCoordinator: MainMapDelegate {
         let detailViewModel = PlaceDetailViewModel(content: content)
         let detailCoordinator = PlaceDetailViewCoordinator(navigationController: navigationController, viewModel: detailViewModel)
         detailCoordinator.parentCoordinator = self
-        childCoordinator.append(detailCoordinator)
         detailCoordinator.start()
         
     }
@@ -48,7 +45,6 @@ extension MainMapViewCoordinator: MainMapDelegate {
         let listViewModel = PlaceListViewModel(locationList: contents)
         let placeListCoordinator = PlaceListViewCoordinator(navigationController: navigationController, viewModel: listViewModel)
         placeListCoordinator.parentCoordinator = self
-        childCoordinator.append(placeListCoordinator)
         placeListCoordinator.start()
     }
 }

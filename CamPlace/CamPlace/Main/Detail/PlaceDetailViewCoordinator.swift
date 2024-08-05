@@ -11,12 +11,13 @@ import UIKit
 class PlaceDetailViewCoordinator: Coordinator {
     var navigationController: UINavigationController
     weak var parentCoordinator: Coordinator?
-    var childCoordinator: [Coordinator] = []
+
     var viewModel: PlaceDetailViewModel
     
     init(navigationController: UINavigationController, viewModel: PlaceDetailViewModel) {
         self.navigationController = navigationController
         self.viewModel = viewModel
+
     }
     
     func start() {
@@ -25,21 +26,14 @@ class PlaceDetailViewCoordinator: Coordinator {
     }
     
     func startPresent() {
-        print("startPresent")
-        if let presentedViewController = navigationController.presentedViewController {
-            presentedViewController.dismiss(animated: false) { [weak self] in
-                self?.presentDetailViewController()
-            }
-        } else {
-            presentDetailViewController()
-        }
-    }
-    
-    private func presentDetailViewController() {
         let detailView = PlaceDetailViewController(viewModel: viewModel)
         let vc = UINavigationController(rootViewController: detailView)
         vc.modalPresentationStyle = .fullScreen
-        navigationController.present(vc, animated: false)
+        
+        if let presentedViewController = navigationController.presentedViewController {
+            presentedViewController.present(vc, animated: true, completion: nil)
+        } else {
+            navigationController.present(vc, animated: true, completion: nil)
+        }
     }
-    
 }
