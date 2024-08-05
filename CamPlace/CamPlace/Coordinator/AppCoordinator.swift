@@ -32,20 +32,21 @@ class AppCoordinator: Coordinator {
         let firstViewCoordinator = MainMapViewCoordinator()
         firstViewCoordinator.parentCoordinator = self
         childCoordinator.append(firstViewCoordinator)
+        firstViewCoordinator.start()
         
-        let mainMapVC = firstViewCoordinator.startPush()
+        let mainMapVC = firstViewCoordinator.navigationController
         mainMapVC.tabBarItem = firstItem
-        mainMapVC.topViewController?.title = ""
-        
-        
+        mainMapVC.topViewController?.title = "지도"
         
         let secondViewCoordinator = LocationFavoriteCoordinator()
         secondViewCoordinator.parentCoordinator = self
         childCoordinator.append(secondViewCoordinator)
         
-        let locationFavoritVC = secondViewCoordinator.startPush()
+        secondViewCoordinator.start()
+        let locationFavoritVC = secondViewCoordinator.navigationController
         locationFavoritVC.tabBarItem = secondItem
         locationFavoritVC.topViewController?.title = "즐겨찾기"
+
         tabbarController.viewControllers = [mainMapVC, locationFavoritVC]
         
         return tabbarController

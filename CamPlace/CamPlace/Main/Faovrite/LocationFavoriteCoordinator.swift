@@ -20,23 +20,21 @@ class LocationFavoriteCoordinator: Coordinator {
     }
     
     func start() {
-        
-    }
- 
-    func startPush() -> UINavigationController {
         let viewModel = LocationFavoriteViewModel()
         let locationFavoriteVC = LocationFavoriteViewController(viewModel: viewModel)
         viewModel.delegate = self
         
         navigationController.setViewControllers([locationFavoriteVC], animated: false)
-        return navigationController
     }
 }
 
 extension LocationFavoriteCoordinator: LocationFavoriteDelegate {
     func pushDetialVC(content: LocationBasedListModel) {
-        let viewModel = PlaceDetailViewModel(content: content)
-        let vc = PlaceDetailViewController(viewModel: viewModel)
-        self.navigationController.pushViewController(vc, animated: true)
+        let detailViewModel = PlaceDetailViewModel(content: content)
+        let detailCoordinator = PlaceDetailViewCoordinator(navigationController: navigationController, viewModel: detailViewModel)
+        detailCoordinator.parentCoordinator = self
+        childCoordinator.append(detailCoordinator)
+        detailCoordinator.start()
+        
     }
 }

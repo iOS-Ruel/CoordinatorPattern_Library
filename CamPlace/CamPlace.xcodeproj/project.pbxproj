@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		410C616C2C5FD2E900366160 /* PlaceListViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410C616B2C5FD2E900366160 /* PlaceListViewCoordinator.swift */; };
+		410C616E2C5FD6A600366160 /* PlaceDetailViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410C616D2C5FD6A600366160 /* PlaceDetailViewCoordinator.swift */; };
 		4114E9C72C29A829009BBC9E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4114E9C62C29A829009BBC9E /* APIService.swift */; };
 		411B1A122C1D74C500CAA9A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411B1A112C1D74C500CAA9A7 /* AppDelegate.swift */; };
 		411B1A142C1D74C500CAA9A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411B1A132C1D74C500CAA9A7 /* SceneDelegate.swift */; };
@@ -48,6 +50,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		410C616B2C5FD2E900366160 /* PlaceListViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListViewCoordinator.swift; sourceTree = "<group>"; };
+		410C616D2C5FD6A600366160 /* PlaceDetailViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewCoordinator.swift; sourceTree = "<group>"; };
 		4114E9C62C29A829009BBC9E /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		411B1A0E2C1D74C500CAA9A7 /* CamPlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CamPlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		411B1A112C1D74C500CAA9A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -259,6 +263,7 @@
 				41BCB4442C23235500E817E6 /* Cell */,
 				41BFBA742C21E1E00014CF89 /* PlaceDetailViewController.swift */,
 				41BCB4332C228F3700E817E6 /* PlaceDetailViewModel.swift */,
+				410C616D2C5FD6A600366160 /* PlaceDetailViewCoordinator.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 				411B1A3B2C1D809900CAA9A7 /* PlaceListViewController.swift */,
 				41BCB43B2C22DDD000E817E6 /* PlaceListTableViewCell.swift */,
 				41EEE3AF2C3C07F800A37E22 /* PlaceListViewModel.swift */,
+				410C616B2C5FD2E900366160 /* PlaceListViewCoordinator.swift */,
 			);
 			path = PlaceList;
 			sourceTree = "<group>";
@@ -382,6 +388,7 @@
 				411B1A312C1D774400CAA9A7 /* LocationBasedListModel.swift in Sources */,
 				41EEE3B02C3C07F800A37E22 /* PlaceListViewModel.swift in Sources */,
 				411B1A342C1D775500CAA9A7 /* SearchListModel.swift in Sources */,
+				410C616C2C5FD2E900366160 /* PlaceListViewCoordinator.swift in Sources */,
 				41BCB4432C23234C00E817E6 /* DetailMapTableViewCell.swift in Sources */,
 				411B1A2B2C1D76E500CAA9A7 /* MainMapViewModel.swift in Sources */,
 				411B1A122C1D74C500CAA9A7 /* AppDelegate.swift in Sources */,
@@ -394,6 +401,7 @@
 				415AF25D2C2086CE00C07CEA /* ImageLoader.swift in Sources */,
 				41BAA88F2C23D0CE001A51FB /* Extension+UIImageView.swift in Sources */,
 				411B1A142C1D74C500CAA9A7 /* SceneDelegate.swift in Sources */,
+				410C616E2C5FD6A600366160 /* PlaceDetailViewCoordinator.swift in Sources */,
 				41BCB4342C228F3700E817E6 /* PlaceDetailViewModel.swift in Sources */,
 				415AF25B2C2086BB00C07CEA /* Extension+UIImage.swift in Sources */,
 				41EEE2C22C37B77F00A37E22 /* LocationFavoriteViewController.swift in Sources */,

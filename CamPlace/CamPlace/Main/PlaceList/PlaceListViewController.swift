@@ -35,7 +35,7 @@ class PlaceListViewController: UIViewController {
     
     private var cancellables = Set<AnyCancellable>()
     private var viewModel: PlaceListViewModel
-    
+    var coordinator: PlaceListViewCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,11 +102,8 @@ extension PlaceListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let content = viewModel.getLocationModel(index: indexPath.row) {
-            let viewModel = PlaceDetailViewModel(content: content)
-            let vc = PlaceDetailViewController(viewModel: viewModel)
-            let naviController = UINavigationController(rootViewController: vc)
-            naviController.modalPresentationStyle = .fullScreen
-            self.present(naviController, animated: false)
+            print("tableview cell select")
+            coordinator?.showDetail(content: content)
         }
     }
     

@@ -26,43 +26,29 @@ class MainMapViewCoordinator: Coordinator {
     }
     
     func start() {
-        
-    }
-    
- 
-    func startPush() -> UINavigationController {
         let viewModel = MainMapViewModel()
         let mapViewController = MainMapViewController(viewModel: viewModel)
         viewModel.delegate = self
         navigationController.setViewControllers([mapViewController], animated: false)
-        
-        return navigationController
     }
+    
 }
 
 extension MainMapViewCoordinator: MainMapDelegate {
     func pushDetialVC(content: LocationBasedListModel) {
-        let viewModel = PlaceDetailViewModel(content: content)
-        let vc = PlaceDetailViewController(viewModel: viewModel)
-        self.navigationController.pushViewController(vc, animated: true)
+        let detailViewModel = PlaceDetailViewModel(content: content)
+        let detailCoordinator = PlaceDetailViewCoordinator(navigationController: navigationController, viewModel: detailViewModel)
+        detailCoordinator.parentCoordinator = self
+        childCoordinator.append(detailCoordinator)
+        detailCoordinator.start()
+        
     }
     
     func presentLocationList(contents: [LocationBasedListModel]) {
         let listViewModel = PlaceListViewModel(locationList: contents)
-        let listVC = PlaceListViewController(viewModel: listViewModel)
-        let vc = UINavigationController(rootViewController: listVC)
-        
-        let detentIdentifier = UISheetPresentationController.Detent.Identifier("customDetent")
-        let customDetent = UISheetPresentationController.Detent.custom(identifier: detentIdentifier) { _ in
-            let screenHeight = UIScreen.main.bounds.height
-            return screenHeight * 0.878912
-        }
-        
-        if let sheet = vc.sheetPresentationController {
-            sheet.detents = [customDetent]
-            sheet.preferredCornerRadius = 30
-        }
-        
-        navigationController.present(vc, animated: true)
+        let placeListCoordinator = PlaceListViewCoordinator(navigationController: navigationController, viewModel: listViewModel)
+        placeListCoordinator.parentCoordinator = self
+        childCoordinator.append(placeListCoordinator)
+        placeListCoordinator.start()
     }
 }
