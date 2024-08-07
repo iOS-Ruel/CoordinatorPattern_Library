@@ -31,7 +31,8 @@ class AppCoordinator: Coordinator {
         
         let firstViewCoordinator = MainMapViewCoordinator()
         firstViewCoordinator.parentCoordinator = self
-        
+        childCoordinator.append(firstViewCoordinator)
+
         firstViewCoordinator.start()
         
         let mainMapVC = firstViewCoordinator.navigationController
@@ -40,6 +41,7 @@ class AppCoordinator: Coordinator {
         
         let secondViewCoordinator = LocationFavoriteCoordinator()
         secondViewCoordinator.parentCoordinator = self
+        childCoordinator.append(secondViewCoordinator)
 
         
         secondViewCoordinator.start()

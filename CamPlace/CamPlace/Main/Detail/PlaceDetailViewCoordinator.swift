@@ -11,6 +11,7 @@ import UIKit
 class PlaceDetailViewCoordinator: Coordinator {
     var navigationController: UINavigationController
     weak var parentCoordinator: Coordinator?
+    var childCoordinator: [Coordinator] = []
 
     var viewModel: PlaceDetailViewModel
     

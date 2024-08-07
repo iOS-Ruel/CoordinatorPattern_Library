@@ -10,4 +10,6 @@ import Foundation
 
 protocol Coordinator: AnyObject {
     func start()
+    var childCoordinator: [Coordinator] { get set }
+
 }

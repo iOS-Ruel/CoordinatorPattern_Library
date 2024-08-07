@@ -11,9 +11,8 @@ import UIKit
 class LocationFavoriteCoordinator: Coordinator {
     var navigationController: UINavigationController
     weak var parentCoordinator: Coordinator?
-    
-    
-    
+    var childCoordinator: [Coordinator] = []
+
     init(){
         self.navigationController = .init()
     }
@@ -32,8 +31,8 @@ extension LocationFavoriteCoordinator: LocationFavoriteDelegate {
         let detailViewModel = PlaceDetailViewModel(content: content)
         let detailCoordinator = PlaceDetailViewCoordinator(navigationController: navigationController, viewModel: detailViewModel)
         detailCoordinator.parentCoordinator = self
-        
+        childCoordinator.append(detailCoordinator)
+
         detailCoordinator.start()
-        
     }
 }

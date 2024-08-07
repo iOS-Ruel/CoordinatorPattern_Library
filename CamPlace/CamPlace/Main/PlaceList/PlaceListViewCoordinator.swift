@@ -12,7 +12,8 @@ class PlaceListViewCoordinator: Coordinator {
     var navigationController: UINavigationController
     weak var parentCoordinator: Coordinator?
     var viewModel: PlaceListViewModel
-    
+    var childCoordinator: [Coordinator] = []
+
     init(navigationController: UINavigationController, viewModel: PlaceListViewModel) {
         self.navigationController = navigationController
         self.viewModel = viewModel
@@ -46,6 +47,8 @@ extension PlaceListViewCoordinator {
         let viewModel = PlaceDetailViewModel(content: content)
         let detailCoordinator = PlaceDetailViewCoordinator(navigationController: navigationController, viewModel: viewModel)
         detailCoordinator.parentCoordinator = self
+        childCoordinator.append(detailCoordinator)
+
         detailCoordinator.startPresent()
     }
 }

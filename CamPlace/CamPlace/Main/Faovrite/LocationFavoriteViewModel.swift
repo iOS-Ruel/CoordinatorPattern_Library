@@ -13,7 +13,7 @@ protocol LocationFavoriteDelegate: AnyObject {
 }
 
 class LocationFavoriteViewModel: PlaceListProtocol {
-
+    
     private var cancellables: Set<AnyCancellable> = []
     
     @Published var locations: [Location] = []
@@ -31,7 +31,7 @@ class LocationFavoriteViewModel: PlaceListProtocol {
             }
             .store(in: &cancellables)
     }
-
+    
     
     func doFavoriteModel(locationContent: LocationBasedListModel) -> AnyPublisher<Bool, Never>? {
         Future<Bool, Never> { promise in
@@ -53,7 +53,7 @@ class LocationFavoriteViewModel: PlaceListProtocol {
     func locationListCount() -> Int {
         return locations.count
     }
-
+    
     
     func isFavorite(content: LocationBasedListModel) -> AnyPublisher<Bool, Never>? {
         Future<Bool, Never> { promise in
